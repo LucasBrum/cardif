@@ -27,7 +27,7 @@ public class Cargo implements Serializable {
 	@JsonInclude(Include.NON_NULL)
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
-	private Integer id;
+	private Long id;
 	
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "cargo_name")

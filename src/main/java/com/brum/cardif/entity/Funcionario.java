@@ -21,7 +21,7 @@ public class Funcionario implements Serializable {
 
 	@Id
 	@Column(name = "funcionario_id")
-	private Integer id;
+	private Long id;
 	
 	@Column(name = "funcionario_age")
 	private Integer idade;
