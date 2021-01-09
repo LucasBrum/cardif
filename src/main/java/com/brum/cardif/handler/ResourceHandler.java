@@ -1,0 +1,46 @@
+package com.brum.cardif.handler;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.brum.cardif.exception.FuncionarioException;
+import com.brum.cardif.model.Response;
+
+@ControllerAdvice
+public class ResourceHandler {
+
+	@ExceptionHandler(FuncionarioException.class)
+	public ResponseEntity<Response<String>> handlerFuncionarioException(FuncionarioException funcionarioException) {
+		
+		Response<String> response = new Response<>();
+		response.setData(funcionarioException.getMessage());
+		response.setStatus(funcionarioException.getHttpStatus().value());
+		
+		return ResponseEntity.status(funcionarioException.getHttpStatus()).body(response);
+	}
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<Response<Map<String, String>>> handlerMethodArgumentNotValidException(MethodArgumentNotValidException m) {
+		
+		Map<String, String> erros = new HashMap<>();
+		
+		m.getBindingResult().getAllErrors().forEach(erro -> {
+			String campo = ((FieldError)erro).getField();
+			String mensagem = erro.getDefaultMessage();
+			erros.put(campo, mensagem);
+		});
+		
+		Response<Map<String, String>> response = new Response<>();
+		response.setStatus(HttpStatus.BAD_REQUEST.value());
+		response.setData(erros);
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+	}
+}
