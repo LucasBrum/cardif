@@ -6,5 +6,5 @@ import com.brum.cardif.entity.Cargo;
 
 public interface CargoService {
 
-	public List<Cargo> listarCargos();
+	List<Cargo> listarCargos();
 }
