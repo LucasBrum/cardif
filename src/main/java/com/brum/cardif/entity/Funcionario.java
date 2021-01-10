@@ -1,12 +1,19 @@
 package com.brum.cardif.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
@@ -21,6 +28,7 @@ public class Funcionario implements Serializable {
 
 	@Id
 	@Column(name = "funcionario_id")
+	@GeneratedValue(generator = "increment")
 	private Long id;
 	
 	@Column(name = "funcionario_age")
@@ -33,9 +41,18 @@ public class Funcionario implements Serializable {
 	private String documento;
 
 	@Column(name = "funcionario_birthday")
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 
 	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "cargo_id", nullable = false)
 	private Cargo cargo;
+	
+	@ManyToMany(fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	@JoinTable(name = "funcionario_departamento", 
+			joinColumns = {@JoinColumn(name = "funcionario_id", referencedColumnName = "funcionario_id")},
+			inverseJoinColumns = { @JoinColumn(name = "departamento_id", referencedColumnName = "departamento_id") })
+	private Set<Departamento> departamentos = new HashSet<>();
+	
+	
 }
