@@ -32,4 +32,5 @@ public class Cargo implements Serializable {
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "cargo_name")
 	private String nome;
+
 }
