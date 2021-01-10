@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.brum.cardif.entity.Cargo;
 
 @Repository
-public interface CargoRepository extends JpaRepository<Cargo, Integer>{
+public interface CargoRepository extends JpaRepository<Cargo, Long>{
 
 }
