@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brum.cardif.entity.Cargo;
 import com.brum.cardif.entity.Departamento;
 import com.brum.cardif.model.Response;
 import com.brum.cardif.respository.DepartamentoRepository;
