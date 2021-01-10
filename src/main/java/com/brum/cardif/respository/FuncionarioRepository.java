@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.brum.cardif.entity.Funcionario;
 
 @Repository
-public interface FuncionariRepository extends JpaRepository<Funcionario, Integer> {
+public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 
 }
