@@ -16,6 +16,8 @@ public interface FuncionarioService {
 	List<Funcionario> listar();
 	
 	void delete(Long id);
+
+	List<Funcionario> buscaPeloDepartamentoId(Long departamentoId);
 	
 	
 }

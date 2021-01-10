@@ -68,4 +68,16 @@ public class FuncionarioController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@GetMapping("/departamento/{departamentoId}")
+	public ResponseEntity<Response<List<Funcionario>>> buscaPeloDepartamentoId(@PathVariable Long departamentoId) {
+		
+		List<Funcionario> funcionarios = this.funcionarioService.buscaPeloDepartamentoId(departamentoId);
+		
+		Response<List<Funcionario>> response = new Response<>();
+		response.setStatus(HttpStatus.OK.value());
+		response.setData(funcionarios);
+		
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
 }

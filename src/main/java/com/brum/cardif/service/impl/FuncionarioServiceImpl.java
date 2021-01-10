@@ -1,7 +1,9 @@
 package com.brum.cardif.service.impl;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,5 +105,19 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 		} catch (Exception e) {
 			throw new FuncionarioException("Ocorreu um erro interno no servidor.", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	@Override
+	public List<Funcionario> buscaPeloDepartamentoId(Long departamentoId) {
+		Set<Departamento> departamentoSet = new HashSet<>();
+		Optional<Departamento> departamento = this.departamentoRepository.findById(departamentoId);
+		
+		if (departamento.isPresent()) {
+			departamentoSet.add(departamento.get());
+		}
+		
+		List<Funcionario> funcionarios = this.funcionarioRepository.findAllByDepartamentosIn(departamentoSet);
+		
+		return funcionarios;
 	}
 }
