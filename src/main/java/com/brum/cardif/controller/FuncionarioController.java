@@ -36,7 +36,7 @@ public class FuncionarioController {
 		response.setData(funcionario);
 		response.setStatus(HttpStatus.OK.value());
 		
-		return new ResponseEntity<>(response, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.CREATED);
 	}
 	
 	@GetMapping
