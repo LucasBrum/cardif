@@ -32,3 +32,14 @@ hs_err_pid*
 /.DS_Store
 .factorypath
 *.class
+target/classes/schema.sql
+target/classes/META-INF/maven/com.brum.cardif/cardif-1/pom.xml
+target/classes/META-INF/maven/com.brum.cardif/cardif-1/pom.properties
+target/classes/com/brum/cardif/service/impl/FuncionarioServiceImpl.class
+target/classes/com/brum/cardif/service/FuncionarioService.class
+target/classes/com/brum/cardif/respository/FuncionariRepository.class
+target/classes/com/brum/cardif/respository/CargoRepository.class
+target/classes/com/brum/cardif/entity/Funcionario.class
+target/classes/com/brum/cardif/entity/Cargo.class
+target/classes/com/brum/cardif/dto/FuncionarioDTO.class
+.factorypath
