@@ -1,0 +1,86 @@
+swagger: "2.0"
+
+schemes:
+ - http
+ 
+host: localhost:8081
+basePath: /
+
+info:
+  version: 1.0.0
+  title: Cardif Api
+  description: Projeto Teste realizado por Lucas Brum
+  contact:
+    name: Lucas Brum
+    url: localhost:8081
+    email: brum.lucas@icloud.com
+
+
+paths:
+  '/funcionarios':
+    post: 
+      summary: Cadastra Funcionário
+      description: Cadastra um novo funcionário
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      operationId: criar
+      parameters:
+        - in: body
+          name: funcionario
+          schema:
+            type: object
+            properties:
+              nome: 
+                type: string
+                example: João Paulo da Silva
+              idade:
+                type: integer
+                example: 20
+              documento:
+                type: string
+                example: 253856496
+              dataNascimento:
+                type: string
+                format: "yyyy/MM/dd"
+                example: 1989/05/10
+              cargoId:
+                type: number
+                format: Long
+                example: 1
+              departamentoId:
+                type: number
+                format: Long
+                example: 2
+      responses:
+        201:
+          description: Cadastro efetuado com sucesso.
+          schema:
+            type: object
+            properties:
+              nome: 
+                type: string
+                example: João Paulo da Silva
+              idade:
+                type: integer
+                example: 20
+              documento:
+                type: string
+                example: 253856496
+              dataNascimento:
+                type: string
+                format: "yyyy/MM/dd"
+                example: 1989/05/10
+              cargoId:
+                type: number
+                format: Long
+                example: 1
+              departamentoId:
+                type: number
+                format: Long
+                example: 2
+        500:
+          description: Erro interno no servidor.
+        
+    
