@@ -43,3 +43,14 @@ target/classes/com/brum/cardif/entity/Funcionario.class
 target/classes/com/brum/cardif/entity/Cargo.class
 target/classes/com/brum/cardif/dto/FuncionarioDTO.class
 .factorypath
+.factorypath
+target/classes/com/brum/cardif/dto/FuncionarioDTO.class
+target/classes/com/brum/cardif/entity/Cargo.class
+target/classes/com/brum/cardif/entity/Funcionario.class
+target/classes/com/brum/cardif/respository/CargoRepository.class
+target/classes/com/brum/cardif/respository/FuncionariRepository.class
+target/classes/com/brum/cardif/service/FuncionarioService.class
+target/classes/com/brum/cardif/service/impl/FuncionarioServiceImpl.class
+target/classes/META-INF/maven/com.brum.cardif/cardif-1/pom.properties
+target/classes/META-INF/maven/com.brum.cardif/cardif-1/pom.xml
+target/classes/schema.sql
